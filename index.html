@@ -10,12 +10,22 @@
 #back-button {
     position: absolute;
     top: -25px;
-    left: 0px;
+    left: 40px;
 }
 #forward-button {
     position: absolute;
     top: -25px;
-    left: 405px;
+    left: 365px;
+}
+#first-button {
+    position: absolute;
+    top: -25px;
+    left: -80px;
+}
+#last-button {
+    position: absolute;
+    top: -25px;
+    left: 485px;
 }
 </style>
 </head>
@@ -30,8 +40,10 @@
 <div style="position: relative;display: inline-block; width: 500px;">
 <div id="comictitle"></div>
 <br/>
+<img id="first-button" src="leftleftarrow_grey.png" onclick="flipFirst();"/>
 <img id="back-button" src="leftarrow_grey.png" onclick="flipBack();"/>
 <img id="forward-button" src="rightarrow_grey.png" onclick="flipForward();"/>
+<img id="last-button" src="rightrightarrow_grey.png" onclick="flipLast();"/>
 </div>
 </center>
 <br/>

@@ -1,4 +1,4 @@
-var main_index, title, container, backButton, forwardButton;
+var main_index, title, container, backButton, forwardButton, firstButton, lastButton;
 main_index = max_index;
 
 function main() {
@@ -6,12 +6,15 @@ function main() {
     container = document.getElementById("comicbook");
     backButton = document.getElementById("back-button");
     forwardButton = document.getElementById("forward-button");
+    firstButton = document.getElementById("first-button");
+    lastButton = document.getElementById("last-button");
     
     updateDisplay(main_index);
 }
 window.onload = main;
 
 function updateDisplay(index) {
+    main_index = index;
     if (main_index != index) {
         if (index != max_index) 
             window.location = getPageString(index) + ".html";
@@ -29,17 +32,25 @@ function updateDisplay(index) {
     if (index <= 1) {
         backButton.src = "leftarrow_grey.png";
         backButton.style.cursor = "default";
+        firstButton.src = "leftleftarrow_grey.png";
+        firstButton.style.cursor = "default";
     } else {
         backButton.src = "leftarrow.png";
         backButton.style.cursor = "pointer";
+        firstButton.src = "leftleftarrow.png";
+        firstButton.style.cursor = "pointer";
     }
     
     if (index >= max_index) {
         forwardButton.src = "rightarrow_grey.png";
         forwardButton.style.cursor = "default";
+        lastButton.src = "rightrightarrow_grey.png";
+        lastButton.style.cursor = "default";
     } else {
         forwardButton.src = "rightarrow.png";
         forwardButton.style.cursor = "pointer";
+        lastButton.src = "rightrightarrow.png";
+        lastButton.style.cursor = "pointer";
     }
 }
 function getPageString(index) {
@@ -53,12 +64,20 @@ function getPageString(index) {
 }
 function flipBack() {
     if (main_index <= 1) return;
-    
     updateDisplay(main_index-1);
 }
 
 function flipForward() {
     if (main_index >= max_index) return;
-    
     updateDisplay(main_index+1);
+}
+
+function flipFirst() {
+    if (main_index <= 1) return;
+    updateDisplay(1);
+}
+
+function flipLast() {
+    if (main_index >= max_index) return;
+    updateDisplay(max_index);
 }
